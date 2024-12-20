@@ -1,8 +1,9 @@
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:pixel_adventure/core/constants/game_colors.dart';
+import 'package:pixel_adventure/game/components/cubit/game_cubit.dart';
 
+import 'core/constants/game_colors.dart';
 import 'game/pixel_adventure.dart';
 
 void main() async {
@@ -11,7 +12,7 @@ void main() async {
   await Flame.device.fullScreen();
 
   runApp(GameWidget(
-    game: PixelAdventure(),
+    game: PixelAdventure(GameCubit()),
     backgroundBuilder: (context) {
       return Container(
         color: GameColors.background,

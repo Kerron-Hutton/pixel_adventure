@@ -8,10 +8,13 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.8
+  equatable: ^2.0.7
   flame: ^1.22.0
+  flame_bloc: ^1.12.4
   flame_tiled: ^1.21.1
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
   logger: ^2.5.0
 
 dev_dependencies:
@@ -24,5 +27,6 @@ flutter:
   assets:
     - assets/images/characters/mask_dude/
     - assets/images/terrain/
+    - assets/images/hud/
     - assets/audio/
     - assets/tiles/
