@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 
-import '../components/cubit/game_cubit.dart';
+import '../cubit/game_cubit.dart';
 
 mixin PlayerJoystickMovement {
   void onJoystickDrag(JoystickComponent joystick, GameCubit cubit) {
@@ -8,15 +8,15 @@ mixin PlayerJoystickMovement {
       case JoystickDirection.downLeft:
       case JoystickDirection.upLeft:
       case JoystickDirection.left:
-        cubit.movePlayer(xDirection: -1);
+        cubit.movePlayer(direction: -1);
         break;
       case JoystickDirection.downRight:
       case JoystickDirection.upRight:
       case JoystickDirection.right:
-        cubit.movePlayer(xDirection: 1);
+        cubit.movePlayer(direction: 1);
         break;
       default:
-        cubit.movePlayer(xDirection: 0);
+        cubit.movePlayer(direction: 0);
         break;
     }
   }

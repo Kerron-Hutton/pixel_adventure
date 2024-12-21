@@ -7,15 +7,18 @@ import 'package:flutter/material.dart';
 
 import '../core/constants/asset_path.dart';
 import '../core/constants/game_constants.dart';
-import 'components/cubit/game_cubit.dart';
-import 'components/game_level.dart';
+import 'components/game_world.dart';
+import 'cubit/game_cubit.dart';
 import 'utils/player_joystick_movement.dart';
 
-class PixelAdventure extends FlameGame<GameLevel>
-    with HasKeyboardHandlerComponents, DragCallbacks, PlayerJoystickMovement {
+class PixelAdventure extends FlameGame<GameWorld>
+    with
+        HasKeyboardHandlerComponents,
+        PlayerJoystickMovement,
+        HasCollisionDetection {
   PixelAdventure(this.cubit)
       : super(
-          world: GameLevel(levelName: AssetPath.levelOneTiles),
+          world: GameWorld(),
           camera: CameraComponent.withFixedResolution(
             height: GameConstants.gameHeight,
             width: GameConstants.gameWidth,

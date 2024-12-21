@@ -3,8 +3,21 @@ abstract class GameConstants {
   static const gameWidth = 640.0;
 
   static const characterStepTime = 0.05;
+
+  /// Terminal velocity is the constant speed at which an object falls
+  /// through a fluid (such as air or water). As an object falls, it
+  /// experiences two main forces: gravity pulling it downward and
+  /// drag (or resistance) from the fluid pushing it upward.
+  static const playerTerminalVelocity = 400.0;
+
   static const playerMoveSpeed = 100.0;
+  static const playerJumpForce = 280.0;
+  static const playerGravity = 9.8;
 
   static const spawnPointLayerName = 'spawn_points';
   static const spawnPointObjectClass = 'player';
+
+  static const topBoundaryObjectClass = 'top_boundary';
+  static const collisionsLayerName = 'collisions';
+  static const platformObjectClass = 'platform';
 }
