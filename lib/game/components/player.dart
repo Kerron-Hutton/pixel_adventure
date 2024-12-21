@@ -4,7 +4,6 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame_bloc/flame_bloc.dart';
 import 'package:flutter/services.dart';
-import 'package:logger/logger.dart';
 
 import '../../core/constants/asset_path.dart';
 import '../../core/constants/game_constants.dart';
@@ -24,9 +23,13 @@ class Player extends SpriteAnimationGroupComponent
         KeyboardHandler {
   Player({required super.position});
 
+  late final SpriteAnimation _doubleJumpAnimation;
   late final SpriteAnimation _jumpAnimation;
   late final SpriteAnimation _idleAnimation;
+  late final SpriteAnimation _fallAnimation;
   late final SpriteAnimation _runAnimation;
+
+  late RectangleHitbox _playerHitbox;
 
   final _velocity = Vector2.zero();
   bool _isOnGround = false;
@@ -38,11 +41,13 @@ class Player extends SpriteAnimationGroupComponent
 
     debugMode = true;
 
-    add(RectangleHitbox(
-      position: Vector2.zero(),
-      anchor: Anchor.topLeft,
-      size: size,
-    ));
+    add(
+      _playerHitbox = RectangleHitbox(
+        position: Vector2(10, 4),
+        anchor: Anchor.topLeft,
+        size: Vector2(14, 28),
+      ),
+    );
   }
 
   @override
@@ -94,14 +99,22 @@ class Player extends SpriteAnimationGroupComponent
     CollisionDirection direction,
     CollisionBlock block,
   ) {
-    if (!block.isPlatform) {
-      if (direction.isRight) {
-        _velocity.x = 0;
-        position.x = block.x - size.x;
-      } else if (direction.isLeft) {
-        _velocity.x = 0;
-        position.x = block.x + block.width + size.x;
-      }
+    if (block.isPlatform) {
+      return;
+    }
+
+    /**
+       * offset of 2 is added to help prevent the player from going 
+       * on top of small platforms on collision.
+       */
+    final playerWidth = _playerHitbox.size.x + _playerHitbox.position.x + 2;
+
+    if (direction.isRight) {
+      _velocity.x = 0;
+      position.x = block.x - playerWidth;
+    } else if (direction.isLeft) {
+      _velocity.x = 0;
+      position.x = block.x + block.width + playerWidth;
     }
   }
 
@@ -109,19 +122,21 @@ class Player extends SpriteAnimationGroupComponent
     CollisionDirection direction,
     CollisionBlock block,
   ) {
+    final playerHight = _playerHitbox.size.y + _playerHitbox.position.y;
+
     if (block.isPlatform) {
       if (direction.isBottom) {
         _velocity.y = 0;
-        position.y = block.y - size.y;
+        position.y = block.y - playerHight;
       }
     } else {
       if (!block.isTopBoundary) {
         if (direction.isBottom) {
           _velocity.y = 0;
-          position.y = block.y - size.y;
+          position.y = block.y - playerHight;
         } else if (direction.isTop) {
           _velocity.y = 0;
-          position.y = block.y + block.height - size.y;
+          position.y = block.y + block.height - playerHight;
         }
       } else {
         if (direction.isTop && _velocity.y < 0) {
@@ -159,10 +174,30 @@ class Player extends SpriteAnimationGroupComponent
 
   void _loadPlayerAnimations() {
     _idleAnimation = _createSpriteAnimation(AssetPath.maskDudeIdleImg);
-    _runAnimation = _createSpriteAnimation(AssetPath.maskDudeRunImg);
-    _jumpAnimation = _createSpriteAnimation(AssetPath.maskDudeJumpImg);
+
+    _runAnimation = _createSpriteAnimation(
+      AssetPath.maskDudeRunImg,
+      frames: 12,
+    );
+
+    _jumpAnimation = _createSpriteAnimation(
+      AssetPath.maskDudeJumpImg,
+      frames: 1,
+    );
+
+    _doubleJumpAnimation = _createSpriteAnimation(
+      AssetPath.maskDudeDoubleJumpImg,
+      frames: 6,
+    );
+
+    _fallAnimation = _createSpriteAnimation(
+      AssetPath.maskDudeFallImg,
+      frames: 1,
+    );
 
     animations = {
+      PlayerState.doubleJump: _doubleJumpAnimation,
+      PlayerState.falling: _fallAnimation,
       PlayerState.running: _runAnimation,
       PlayerState.jump: _jumpAnimation,
       PlayerState.idle: _idleAnimation,
@@ -171,13 +206,13 @@ class Player extends SpriteAnimationGroupComponent
     current = bloc.state.playerState;
   }
 
-  SpriteAnimation _createSpriteAnimation(String imgSrc) {
+  SpriteAnimation _createSpriteAnimation(String imgSrc, {int frames = 11}) {
     return SpriteAnimation.fromFrameData(
       game.images.fromCache(imgSrc),
       SpriteAnimationData.sequenced(
         stepTime: GameConstants.characterStepTime,
         textureSize: Vector2.all(32),
-        amount: 11,
+        amount: frames,
       ),
     );
   }
@@ -210,11 +245,25 @@ class Player extends SpriteAnimationGroupComponent
   }
 
   void _handleJump(double dt) {
-    if (!bloc.state.playerJumped || !_isOnGround) {
+    if (!bloc.state.playerJumped) {
       return;
     }
 
-    _velocity.y = -(GameConstants.playerJumpForce);
+    if (_velocity.y > 0) {
+      if (bloc.state.playerJumped) {
+        bloc.changePlayerState(PlayerState.doubleJump);
+      } else {
+        bloc.changePlayerState(PlayerState.falling);
+      }
+    } else if (_velocity.y < 0) {
+      bloc.changePlayerState(PlayerState.jump);
+    }
+
+    final jumpForce = _isOnGround
+        ? GameConstants.playerJumpForce
+        : GameConstants.playerJumpForce / 2;
+
+    _velocity.y = -(jumpForce);
     position.y += _velocity.y * dt;
 
     bloc.movePlayer(playerJumped: false);

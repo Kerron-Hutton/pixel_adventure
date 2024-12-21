@@ -10,6 +10,10 @@ abstract class AssetPath {
   static const maskDudeIdleImg = 'characters/mask_dude/Idle (32x32).png';
   static const maskDudeJumpImg = 'characters/mask_dude/Jump (32x32).png';
   static const maskDudeRunImg = 'characters/mask_dude/Run (32x32).png';
+
   static const maskDudeWallJumpImg =
-      'main_characters/ninja_frog/Wall Jump (32x32).png';
+      'characters/mask_dude/Wall Jump (32x32).png';
+
+  static const maskDudeDoubleJumpImg =
+      'characters/mask_dude/Double Jump (32x32).png';
 }
