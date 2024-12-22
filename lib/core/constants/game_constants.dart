@@ -2,7 +2,9 @@ abstract class GameConstants {
   static const gameHeight = 360.0;
   static const gameWidth = 640.0;
 
-  static const characterStepTime = 0.05;
+  static const backgroundTileImageSize = 64;
+  static const backgroundYScrollSpeed = 0.4;
+  static const animationStepTime = 0.05;
 
   /// Terminal velocity is the constant speed at which an object falls
   /// through a fluid (such as air or water). As an object falls, it
@@ -15,9 +17,13 @@ abstract class GameConstants {
   static const playerGravity = 9.8;
 
   static const spawnPointLayerName = 'spawn_points';
-  static const spawnPointObjectClass = 'player';
+  static const spawnPlayerObjectClass = 'player';
+  static const spawnFruitObjectClass = 'fruit';
 
   static const topBoundaryObjectClass = 'top_boundary';
   static const collisionsLayerName = 'collisions';
   static const platformObjectClass = 'platform';
+
+  static const levelBackgroundLayerName = 'background';
+  static const backgroundLayerColorProp = 'background_color';
 }

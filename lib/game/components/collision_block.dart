@@ -22,8 +22,6 @@ class CollisionBlock extends PositionComponent {
   FutureOr<void> onLoad() async {
     await super.onLoad();
 
-    debugMode = true;
-
     add(RectangleHitbox(
       collisionType: CollisionType.passive,
       position: Vector2.zero(),

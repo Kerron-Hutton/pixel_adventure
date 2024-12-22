@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 
-import '../cubit/game_cubit.dart';
+import '../../game/cubit/game_cubit.dart';
 
 mixin PlayerJoystickMovement {
   void onJoystickDrag(JoystickComponent joystick, GameCubit cubit) {

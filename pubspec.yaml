@@ -26,6 +26,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/characters/mask_dude/
+    - assets/images/items/fruits/
+    - assets/images/background/
     - assets/images/terrain/
     - assets/images/hud/
     - assets/audio/

@@ -1,6 +1,9 @@
 abstract class AssetPath {
   static const levelOneTiles = 'tiled_map_level_1.tmx';
 
+  static const fruitItemsAssetPath = 'items/fruits';
+  static const backgroundAssetPath = 'background';
+
   static const hudJumpButton = 'hud/jump_button.png';
   static const hudJoystick = 'hud/joystick.png';
   static const hudJoystickKnob = 'hud/knob.png';

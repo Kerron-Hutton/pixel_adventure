@@ -9,7 +9,7 @@ import '../core/constants/asset_path.dart';
 import '../core/constants/game_constants.dart';
 import 'components/game_world.dart';
 import 'cubit/game_cubit.dart';
-import 'utils/player_joystick_movement.dart';
+import '../core/utils/player_joystick_movement.dart';
 
 class PixelAdventure extends FlameGame<GameWorld>
     with

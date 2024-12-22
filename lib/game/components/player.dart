@@ -10,7 +10,7 @@ import '../../core/constants/game_constants.dart';
 import '../../core/enums/collision_direction.dart';
 import '../../core/enums/player_state.dart';
 import '../pixel_adventure.dart';
-import '../utils/player_keyboard_movement.dart';
+import '../../core/utils/player_keyboard_movement.dart';
 import '../cubit/game_cubit.dart';
 import 'collision_block.dart';
 
@@ -21,7 +21,7 @@ class Player extends SpriteAnimationGroupComponent
         PlayerKeyboardMovement,
         CollisionCallbacks,
         KeyboardHandler {
-  Player({required super.position});
+  Player({required super.position}) : super(priority: 1);
 
   late final SpriteAnimation _doubleJumpAnimation;
   late final SpriteAnimation _jumpAnimation;
@@ -38,8 +38,6 @@ class Player extends SpriteAnimationGroupComponent
   Future<void> onLoad() async {
     await super.onLoad();
     _loadPlayerAnimations();
-
-    debugMode = true;
 
     add(
       _playerHitbox = RectangleHitbox(
@@ -210,7 +208,7 @@ class Player extends SpriteAnimationGroupComponent
     return SpriteAnimation.fromFrameData(
       game.images.fromCache(imgSrc),
       SpriteAnimationData.sequenced(
-        stepTime: GameConstants.characterStepTime,
+        stepTime: GameConstants.animationStepTime,
         textureSize: Vector2.all(32),
         amount: frames,
       ),

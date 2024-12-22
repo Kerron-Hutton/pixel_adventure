@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 
-import '../cubit/game_cubit.dart';
+import '../../game/cubit/game_cubit.dart';
 
 mixin PlayerKeyboardMovement {
   final _rightKeys = [LogicalKeyboardKey.arrowRight, LogicalKeyboardKey.keyD];
