@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame_bloc/flame_bloc.dart';
-import 'package:pixel_adventure/core/constants/asset_path.dart';
-import 'package:pixel_adventure/game/components/game_level.dart';
-import 'package:pixel_adventure/game/pixel_adventure.dart';
 
+import '../../core/constants/asset_path.dart';
 import '../cubit/game_cubit.dart';
+import '../pixel_adventure.dart';
+import 'game_level.dart';
 
 class GameWorld extends World with HasGameRef<PixelAdventure> {
   @override

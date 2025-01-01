@@ -7,7 +7,7 @@ import '../components/collision_block.dart';
 part 'game_state.dart';
 
 class GameCubit extends Cubit<GameState> {
-  GameCubit() : super(GameState());
+  GameCubit() : super(const GameState());
 
   void movePlayer({double? direction, bool? playerJumped}) {
     emit(state.copyWith(
