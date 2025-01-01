@@ -1,17 +1,17 @@
 import 'dart:async';
 
+import 'package:flame/components.dart';
 import 'package:flame_bloc/flame_bloc.dart';
 import 'package:flame_tiled/flame_tiled.dart';
-import 'package:flame/components.dart';
 import 'package:logger/logger.dart';
-import 'package:pixel_adventure/game/components/fruit_item.dart';
-import '../pixel_adventure.dart';
-import 'background_tile.dart';
 
 import '../../core/constants/asset_path.dart';
 import '../../core/constants/game_constants.dart';
 import '../cubit/game_cubit.dart';
+import '../pixel_adventure.dart';
+import 'background_tile.dart';
 import 'collision_block.dart';
+import 'fruit_item.dart';
 import 'player.dart';
 
 class GameLevel extends Component
@@ -109,7 +109,7 @@ class GameLevel extends Component
     final tileImgSize = GameConstants.backgroundTileImageSize;
 
     /**
-     * adding +2 to the number of tiles will remove a gap found when 
+     * adding +2 to the number of tiles will remove a gap found when
      * while doing endless scrolling.
      */
     final numOfTilesInYDirection = (game.size.y / tileImgSize).floor() + 2;
@@ -120,8 +120,8 @@ class GameLevel extends Component
         add(
           BackgroundTile(
             /**
-             * subtracting tileSize will allow us to have some buffer 
-              * from the edge of the screen before scrolling.
+             * subtracting tileSize will allow us to have some buffer
+             * from the edge of the screen before scrolling.
              */
             position: Vector2(x * tileImgSize, y * tileImgSize - tileImgSize),
             tileName: backgroundColor ?? 'gray',

@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:pixel_adventure/core/constants/game_constants.dart';
+
+import '../../core/constants/game_constants.dart';
 
 class CollisionBlock extends PositionComponent {
   CollisionBlock({

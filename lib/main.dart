@@ -1,9 +1,9 @@
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:pixel_adventure/game/cubit/game_cubit.dart';
 
 import 'core/constants/game_colors.dart';
+import 'game/cubit/game_cubit.dart';
 import 'game/pixel_adventure.dart';
 
 void main() async {
