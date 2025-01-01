@@ -30,6 +30,7 @@ flutter:
     - assets/images/items/fruits/
     - assets/images/characters/
     - assets/images/background/
+    - assets/images/items/saw/
     - assets/images/terrain/
     - assets/images/hud/
     - assets/audio/

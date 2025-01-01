@@ -12,6 +12,10 @@ abstract class AssetPath {
   static const checkpointFlagOutImg = 'items/checkpoint/flag_out (64x64).png';
   static const checkpointNoFlagImg = 'items/checkpoint/no_flag (64x64).png';
 
+  static const sawChainImg = 'items/saw/chain (8x8).png';
+  static const sawOffImg = 'items/saw/off (38x38).png';
+  static const sawOnImg = 'items/saw/on (38x38).png';
+
   static const maskDudeFallImg = 'characters/mask_dude/Fall (32x32).png';
   static const maskDudeHitImg = 'characters/mask_dude/Hit (32x32).png';
   static const maskDudeIdleImg = 'characters/mask_dude/Idle (32x32).png';

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="43">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="76">
  <tileset firstgid="1" source="pixel_adventure.tsx"/>
+ <tileset firstgid="243" source="saw_chain.tsx"/>
  <layer id="1" name="background" width="40" height="23">
   <properties>
    <property name="background_color" value="gray"/>
@@ -9,15 +10,15 @@
 24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
 24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
 24,24,92,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,93,24,24,
-24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
-24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
-24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
-24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
-24,24,113,19,19,19,19,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,14,14,14,14,14,111,24,24,
-24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
-24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,13,14,14,14,14,14,14,14,14,14,15,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
-24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
-24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
+24,24,113,0,0,0,0,0,0,0,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
+24,24,113,0,0,0,0,0,0,0,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
+24,24,113,0,0,0,0,0,0,0,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
+24,24,113,0,0,0,0,0,0,0,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
+24,24,113,19,19,19,19,20,0,0,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,14,14,14,14,14,111,24,24,
+24,24,113,0,0,0,0,0,0,0,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
+24,24,113,0,0,0,0,0,0,0,243,0,0,0,0,13,14,14,14,14,14,14,14,14,14,15,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
+24,24,113,0,0,0,0,0,0,0,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
+24,24,113,0,0,0,0,0,0,0,243,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
 24,24,113,19,19,19,19,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
 24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
 24,24,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,111,24,24,
@@ -39,6 +40,28 @@
   <object id="39" name="cherries" type="fruit" x="64" y="160" width="32" height="32"/>
   <object id="40" name="bananas" type="fruit" x="192" y="224" width="32" height="32"/>
   <object id="42" type="checkpoint" x="516.148" y="46.6325" width="64" height="64"/>
+  <object id="43" type="saw" x="476.912" y="235.758" width="38" height="38">
+   <properties>
+    <property name="hasChains" type="bool" value="false"/>
+    <property name="horizontalNegTileRange" type="float" value="8"/>
+    <property name="horizontalPosTileRange" type="float" value="4"/>
+    <property name="isVerticalOrientation" type="bool" value="false"/>
+    <property name="movementDirection" type="float" value="-1"/>
+    <property name="verticalNegTileRange" type="float" value="0"/>
+    <property name="verticalPosTileRange" type="float" value="0"/>
+   </properties>
+  </object>
+  <object id="44" type="saw" x="153.179" y="96.4952" width="38" height="38">
+   <properties>
+    <property name="hasChains" type="bool" value="true"/>
+    <property name="horizontalNegTileRange" type="float" value="0"/>
+    <property name="horizontalPosTileRange" type="float" value="0"/>
+    <property name="isVerticalOrientation" type="bool" value="true"/>
+    <property name="movementDirection" type="float" value="1"/>
+    <property name="verticalNegTileRange" type="float" value="3"/>
+    <property name="verticalPosTileRange" type="float" value="5"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="3" name="collisions">
   <object id="12" type="left_boundary" x="40" y="40" width="8" height="275"/>

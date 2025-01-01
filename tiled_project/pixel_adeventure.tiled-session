@@ -12,11 +12,17 @@
             "scaleInEditor": 1
         },
         "/Users/kh40105/Documents/workspace/flutter/pixel_adventure/assets/tiles/pixel_adventure.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/Users/kh40105/Documents/workspace/flutter/pixel_adventure/assets/tiles/saw_chain.tsx": {
+            "dynamicWrapping": true,
             "scaleInDock": 1,
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "/Users/huttonkm/workspace/flutter/pixel_adventure/assets/images/terrain",
+    "last.imagePath": "/Users/kh40105/Documents/workspace/flutter/game_assets/Pixel Adventure/Traps/Saw",
     "map.height": 23,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
@@ -25,13 +31,15 @@
     "openFiles": [
     ],
     "project": "pixel_adeventure.tiled-project",
+    "property.type": "string",
     "recentFiles": [
+        "/Users/kh40105/Documents/workspace/flutter/pixel_adventure/assets/tiles/saw_chain.tsx",
         "/Users/kh40105/Documents/workspace/flutter/pixel_adventure/assets/tiles/pixel_adventure.tsx",
         "/Users/huttonkm/workspace/flutter/pixel_adventure/assets/tiles/pixel_adventure.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 16,
-        "width": 16
+        "height": 8,
+        "width": 8
     }
 }

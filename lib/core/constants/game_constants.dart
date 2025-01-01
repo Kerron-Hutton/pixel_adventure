@@ -22,6 +22,7 @@ abstract class GameConstants {
   static const spawnPointLayerName = 'spawn_points';
   static const spawnPlayerObjectClass = 'player';
   static const spawnFruitObjectClass = 'fruit';
+  static const spawnSawObjectClass = 'saw';
 
   static const topBoundaryObjectClass = 'top_boundary';
   static const collisionsLayerName = 'collisions';

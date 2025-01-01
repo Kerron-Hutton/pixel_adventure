@@ -14,6 +14,7 @@ import 'checkpoint_flag.dart';
 import 'collision_block.dart';
 import 'fruit_item.dart';
 import 'player.dart';
+import 'saw_obstacle.dart';
 
 class GameLevel extends Component
     with FlameBlocReader<GameCubit, GameState>, HasGameRef<PixelAdventure> {
@@ -153,6 +154,36 @@ class GameLevel extends Component
           add(CheckpointFlag(
             size: Vector2(spawn.width, spawn.height),
             position: Vector2(spawn.x, spawn.y),
+          ));
+          break;
+        case GameConstants.spawnSawObjectClass:
+          final bool hasChains = spawn.properties.getValue(
+            'hasChains',
+          );
+
+          add(SawObstacle(
+            size: Vector2(spawn.width, spawn.height),
+            position: Vector2(spawn.x, spawn.y),
+            horizontalPosTileRange: spawn.properties.getValue(
+              'horizontalPosTileRange',
+            ),
+            horizontalNegTileRange: spawn.properties.getValue(
+              'horizontalNegTileRange',
+            ),
+            verticalPosTileRange: spawn.properties.getValue(
+              'verticalPosTileRange',
+            ),
+            verticalNegTileRange: spawn.properties.getValue(
+              'verticalNegTileRange',
+            ),
+            isVerticalOrientation: spawn.properties.getValue(
+              'isVerticalOrientation',
+            ),
+            movementDirection: spawn.properties.getValue(
+              'movementDirection',
+            ),
+            priority: hasChains ? 1 : -1,
+            hasChains: hasChains,
           ));
           break;
       }
