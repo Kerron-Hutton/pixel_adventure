@@ -10,6 +10,7 @@ import '../../core/constants/game_constants.dart';
 import '../cubit/game_cubit.dart';
 import '../pixel_adventure.dart';
 import 'background_tile.dart';
+import 'checkpoint_flag.dart';
 import 'collision_block.dart';
 import 'fruit_item.dart';
 import 'player.dart';
@@ -141,11 +142,19 @@ class GameLevel extends Component
     }
 
     for (final spawn in spawnPointLayer.objects) {
-      if (spawn.class_ == GameConstants.spawnFruitObjectClass) {
-        add(FruitItem(
-          position: Vector2(spawn.x, spawn.y),
-          fruit: spawn.name,
-        ));
+      switch (spawn.class_) {
+        case GameConstants.spawnFruitObjectClass:
+          add(FruitItem(
+            position: Vector2(spawn.x, spawn.y),
+            fruit: spawn.name,
+          ));
+          break;
+        case GameConstants.spawnCheckpointObjectClass:
+          add(CheckpointFlag(
+            size: Vector2(spawn.width, spawn.height),
+            position: Vector2(spawn.x, spawn.y),
+          ));
+          break;
       }
     }
   }

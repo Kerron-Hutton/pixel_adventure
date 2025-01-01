@@ -6,8 +6,13 @@
     "activeFile": "",
     "expandedProjectPaths": [
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "/Users/huttonkm/workspace/flutter/pixel_adventure/assets/tiles/pixel_adventure.tsx": {
+            "scaleInEditor": 1
+        },
+        "/Users/kh40105/Documents/workspace/flutter/pixel_adventure/assets/tiles/pixel_adventure.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         }
     },
@@ -21,6 +26,7 @@
     ],
     "project": "pixel_adeventure.tiled-project",
     "recentFiles": [
+        "/Users/kh40105/Documents/workspace/flutter/pixel_adventure/assets/tiles/pixel_adventure.tsx",
         "/Users/huttonkm/workspace/flutter/pixel_adventure/assets/tiles/pixel_adventure.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",

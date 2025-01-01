@@ -9,9 +9,9 @@ import '../../core/constants/asset_path.dart';
 import '../../core/constants/game_constants.dart';
 import '../../core/enums/collision_direction.dart';
 import '../../core/enums/player_state.dart';
-import '../pixel_adventure.dart';
 import '../../core/utils/player_keyboard_movement.dart';
 import '../cubit/game_cubit.dart';
+import '../pixel_adventure.dart';
 import 'collision_block.dart';
 
 class Player extends SpriteAnimationGroupComponent
@@ -23,6 +23,8 @@ class Player extends SpriteAnimationGroupComponent
         KeyboardHandler {
   Player({required super.position}) : super(priority: 1);
 
+  late final SpriteAnimation _disAppearingAnimation;
+  late final SpriteAnimation _appearingAnimation;
   late final SpriteAnimation _doubleJumpAnimation;
   late final SpriteAnimation _jumpAnimation;
   late final SpriteAnimation _idleAnimation;
@@ -51,6 +53,12 @@ class Player extends SpriteAnimationGroupComponent
   @override
   void update(double dt) {
     super.update(dt);
+
+    _playerReachedTheFinishLine();
+
+    if (bloc.state.isLevelCompleted) {
+      return;
+    }
 
     _updatePlayerMovement(dt);
 
@@ -102,9 +110,9 @@ class Player extends SpriteAnimationGroupComponent
     }
 
     /**
-       * offset of 2 is added to help prevent the player from going 
-       * on top of small platforms on collision.
-       */
+     * offset of 2 is added to help prevent the player from going
+     * on top of small platforms on collision.
+     */
     final playerWidth = _playerHitbox.size.x + _playerHitbox.position.x + 2;
 
     if (direction.isRight) {
@@ -193,7 +201,20 @@ class Player extends SpriteAnimationGroupComponent
       frames: 1,
     );
 
+    _disAppearingAnimation = _createSpriteAnimation(
+      AssetPath.characterDisappearingImg,
+      textureSize: 96,
+      frames: 7,
+    );
+
+    _appearingAnimation = _createSpriteAnimation(
+      AssetPath.characterAppearingImg,
+      textureSize: 96,
+      frames: 7,
+    )..loop = false;
+
     animations = {
+      PlayerState.reachFinishLine: _disAppearingAnimation,
       PlayerState.doubleJump: _doubleJumpAnimation,
       PlayerState.falling: _fallAnimation,
       PlayerState.running: _runAnimation,
@@ -204,12 +225,16 @@ class Player extends SpriteAnimationGroupComponent
     current = bloc.state.playerState;
   }
 
-  SpriteAnimation _createSpriteAnimation(String imgSrc, {int frames = 11}) {
+  SpriteAnimation _createSpriteAnimation(
+    String imgSrc, {
+    double textureSize = 32,
+    int frames = 11,
+  }) {
     return SpriteAnimation.fromFrameData(
       game.images.fromCache(imgSrc),
       SpriteAnimationData.sequenced(
         stepTime: GameConstants.animationStepTime,
-        textureSize: Vector2.all(32),
+        textureSize: Vector2.all(textureSize),
         amount: frames,
       ),
     );
@@ -234,7 +259,7 @@ class Player extends SpriteAnimationGroupComponent
     /**
      * Flipping around the horizontal axis will affect the scale property
      * on the sprint component.
-     * 
+     *
      * TODO: Do additional reading on the scale property
      */
     if ((_velocity.x > 0 && scale.x < 0) || (_velocity.x < 0 && scale.x > 0)) {
@@ -274,5 +299,22 @@ class Player extends SpriteAnimationGroupComponent
 
     current = bloc.state.playerState;
     position.x += _velocity.x * dt;
+  }
+
+  void _playerReachedTheFinishLine() {
+    final reachedFinishLine = bloc.state.playerState.reachedFinishLine;
+
+    if (!reachedFinishLine || bloc.state.isLevelCompleted) {
+      return;
+    }
+
+    if (scale.x > 0) {
+      position = position - Vector2.all(32);
+    } else if (scale.x < 0) {
+      position = position + Vector2(32, -32);
+    }
+
+    current = PlayerState.reachFinishLine;
+    bloc.levelCompleted();
   }
 }

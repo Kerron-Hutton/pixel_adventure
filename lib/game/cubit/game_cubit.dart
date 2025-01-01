@@ -33,4 +33,10 @@ class GameCubit extends Cubit<GameState> {
       collisionBlocks: blocks,
     ));
   }
+
+  void levelCompleted() {
+    emit(state.copyWith(
+      isLevelCompleted: true,
+    ));
+  }
 }

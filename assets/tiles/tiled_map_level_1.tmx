@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="41">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="43">
  <tileset firstgid="1" source="pixel_adventure.tsx"/>
  <layer id="1" name="background" width="40" height="23">
   <properties>
@@ -32,12 +32,13 @@
 </data>
  </layer>
  <objectgroup id="2" name="spawn_points">
-  <object id="8" name="player" type="player" x="80" y="224" width="32" height="32"/>
+  <object id="8" name="player" type="player" x="72.0228" y="224" width="32" height="32"/>
   <object id="36" name="strawberry" type="fruit" x="448" y="176" width="32" height="32"/>
   <object id="37" name="pineapple" type="fruit" x="288" y="112" width="32" height="32"/>
   <object id="38" name="kiwi" type="fruit" x="320" y="112" width="32" height="32"/>
   <object id="39" name="cherries" type="fruit" x="64" y="160" width="32" height="32"/>
   <object id="40" name="bananas" type="fruit" x="192" y="224" width="32" height="32"/>
+  <object id="42" type="checkpoint" x="516.148" y="46.6325" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="3" name="collisions">
   <object id="12" type="left_boundary" x="40" y="40" width="8" height="275"/>

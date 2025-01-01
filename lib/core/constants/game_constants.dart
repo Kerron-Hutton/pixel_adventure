@@ -4,7 +4,9 @@ abstract class GameConstants {
 
   static const backgroundTileImageSize = 64;
   static const backgroundYScrollSpeed = 0.4;
-  static const animationStepTime = 0.05;
+
+  /// All animations have a speed of 20 FPS or 50 MS
+  static const animationStepTime = 1 / 20;
 
   /// Terminal velocity is the constant speed at which an object falls
   /// through a fluid (such as air or water). As an object falls, it
@@ -16,6 +18,7 @@ abstract class GameConstants {
   static const playerJumpForce = 280.0;
   static const playerGravity = 9.8;
 
+  static const spawnCheckpointObjectClass = 'checkpoint';
   static const spawnPointLayerName = 'spawn_points';
   static const spawnPlayerObjectClass = 'player';
   static const spawnFruitObjectClass = 'fruit';
